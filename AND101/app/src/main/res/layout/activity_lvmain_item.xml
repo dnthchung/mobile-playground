@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context="com.doanchung.listview.LVMainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PS001"
+        android:textSize="20sp"
+        android:id="@+id/tvID"
+        android:textStyle="bold"
+        android:textColor="red"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Doan Thanh Chung"
+        android:textSize="20sp"
+        android:id="@+id/tvName"
+        android:textStyle="bold"
+        android:textColor="red"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="9.0"
+        android:textSize="20sp"
+        android:id="@+id/tvAVG"
+        android:textStyle="bold"
+        android:textColor="red"/>
+</LinearLayout>
