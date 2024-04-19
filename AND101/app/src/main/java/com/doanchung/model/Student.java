@@ -1,6 +1,8 @@
 package com.doanchung.model;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     private String studentId;
     private String studentName;
     private float avgPoint;
