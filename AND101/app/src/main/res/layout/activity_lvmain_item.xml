@@ -8,27 +8,29 @@
     tools:context="com.doanchung.listview.LVMainActivity">
 
     <TextView
+        android:id="@+id/studentId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PS001"
-        android:textSize="20sp"
-        android:id="@+id/tvID"
+        android:text="HE176077"
         android:textStyle="bold"
-        android:textColor="red"/>
+        android:textSize="20sp"
+        />
+
     <TextView
+        android:id="@+id/studentName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Doan Thanh Chung"
-        android:textSize="20sp"
-        android:id="@+id/tvName"
-        android:textStyle="bold"
-        android:textColor="red"/>
+        android:text="Doan Chung"
+        android:textStyle="bold" />
+
     <TextView
+        android:id="@+id/studentAVG"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="9.0"
+        android:gravity="right"
         android:textSize="20sp"
-        android:id="@+id/tvAVG"
+        android:textColor="#FF0000"
         android:textStyle="bold"
-        android:textColor="red"/>
+        android:text="10.0" />
+
 </LinearLayout>
