@@ -27,7 +27,6 @@ public class Screen1Activity extends AppCompatActivity {
         button.setOnClickListener(v -> {
             Intent myIntent = new Intent(Screen1Activity.this, Screen2Activity.class);
             String productName = editText.getText().toString();
-
             myIntent.putExtra("productName", productName);
 
             myLauncher.launch(myIntent);
