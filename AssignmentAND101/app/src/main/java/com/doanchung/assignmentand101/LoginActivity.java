@@ -18,6 +18,11 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //2 biến này dùng để save data từ RegisterActivity,
+    //sau đó được dùng để so sánh với data người dùng nhập vào để login
+    String userRegister = "";
+    String passwordRegister = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,20 @@ public class LoginActivity extends AppCompatActivity {
                 myLauncher.launch(intent);
             }
         });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userLogin = edtUser.getText().toString();
+                String passwordLogin = edtPassword.getText().toString();
+
+                if (userLogin.equals(userRegister) && passwordLogin.equals(passwordRegister)) {
+                    Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                }else {
+                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -52,14 +71,16 @@ public class LoginActivity extends AppCompatActivity {
                     if(o.getResultCode() == RESULT_OK){
                         Intent intent = o.getData();
 
-                        String user = intent.getStringExtra("user");
-                        String password = intent.getStringExtra("password");
+                        userRegister = intent.getStringExtra("user");
+                        passwordRegister = intent.getStringExtra("password");
+
                         Toast.makeText(LoginActivity.this, "Register Successfully", Toast.LENGTH_SHORT).show();
+
                         TextInputEditText edtUser = findViewById(R.id.edtUser);
                         TextInputEditText edtPassword = findViewById(R.id.edtPassword);
 
-                        edtUser.setText(user);
-                        edtPassword.setText(password);
+                        edtUser.setText(userRegister);
+                        edtPassword.setText(passwordRegister);
                     }
                 }
             }
