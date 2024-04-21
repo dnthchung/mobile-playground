@@ -27,7 +27,8 @@
             android:id="@+id/edtUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter user name"/>
+            android:hint="Enter user name"
+            app:errorEnabled="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -38,7 +39,8 @@
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter password"/>
+            android:hint="Enter password"
+            app:errorEnabled="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox

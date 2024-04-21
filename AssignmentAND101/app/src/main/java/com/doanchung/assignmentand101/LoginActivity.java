@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +18,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
-
-    //2 biến này dùng để save data từ RegisterActivity,
-    //sau đó được dùng để so sánh với data người dùng nhập vào để login
+    /**
+     * 2 biến này dùng để save data từ RegisterActivity,
+     * sau đó được dùng để so sánh với data người dùng nhập vào để login
+     */
     String userRegister = "";
     String passwordRegister = "";
 
@@ -28,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //1
         TextInputEditText edtUser = findViewById(R.id.edtUser);
         TextInputLayout txtUser = findViewById(R.id.txtUser);
 
@@ -39,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnRegister = findViewById(R.id.btnRegister);
 
+        //2
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,17 +56,65 @@ public class LoginActivity extends AppCompatActivity {
                 String userLogin = edtUser.getText().toString();
                 String passwordLogin = edtPassword.getText().toString();
 
-                if (userLogin.equals(userRegister) && passwordLogin.equals(passwordRegister)) {
+                if (userLogin.length() > 0 && passwordLogin.length() > 0 && userLogin.equals(userRegister) && passwordLogin.equals(passwordRegister)) {
+                    //remember me
+                    if(chkRemember.isChecked()){
+                        //1. call file need to store (name of file reference, mode)
+                        //2. edit to file that be called above
+                        //3. store data to file by (key, value)
+                        //4. save (apply)
+                        SharedPreferences sharedPreferencesNe = getSharedPreferences("info data", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferencesNe.edit();
+                        editor.putString("userLogin", userLogin);
+                        editor.putString("passwordLogin", passwordLogin);
+                        editor.putBoolean("chkRememberNe", chkRemember.isChecked());
+                        editor.apply();
+                    }
                     Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    //clear previous activity
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+
                 }else {
                     Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+        //3
+        /**
+         *  kiểm tra thông tin đăng nhập người dùng có chọn lưu lại hay không
+         *  1. get data out(file name, default value - nếu như k tìm thấy thì đặt giá trị mặc định là false)
+         *  2. check biến remember nếu như có thì lấy ra user và password
+         *  3. set data to view(user, password input field)
+         **/
+
+        SharedPreferences sharedPreferences = getSharedPreferences("info data", MODE_PRIVATE);
+        boolean isRemember = sharedPreferences.getBoolean("chkRememberNe", false);
+        if(isRemember){
+            String user = sharedPreferences.getString("userLogin", "");
+            String password = sharedPreferences.getString("passwordLogin", "");
+
+            //set data to view
+            edtUser.setText(user);
+            edtPassword.setText(password);
+            chkRemember.setChecked(isRemember);
+
+            //set data to variable register
+            userRegister = user;
+            passwordRegister = password;
+        }else {
+            //nếu như k chọn remember thì clear data đã lưu
+            SharedPreferences.Editor editor = getSharedPreferences("info data", MODE_PRIVATE).edit();
+            editor.clear();
+            editor.apply();
+        }
+
+
     }
 
+    //activity result to get data from RegisterActivity
     private ActivityResultLauncher<Intent> myLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {

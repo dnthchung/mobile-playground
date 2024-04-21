@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="20dp"
+        android:text="Quản lý nhân sự"
+        android:textColor="#915757"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnPhongBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/custom_button1"
+            android:drawableTop="@drawable/baseline_add_home_work_24"
+            android:text="Phong ban"
+            android:textColor="#000"
+            android:textSize="15sp"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnNhanSu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button1"
+            android:drawableTop="@drawable/baseline_diversity_3_24"
+            android:text="Nhan su"
+            android:textColor="#000"
+            android:textSize="15sp"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnExist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_button1"
+        android:drawableTop="@drawable/baseline_diversity_3_24"
+        android:text="Exist"
+        android:textColor="#000"
+        android:textSize="15sp"
+        app:backgroundTint="@null" />
+
+</LinearLayout>
