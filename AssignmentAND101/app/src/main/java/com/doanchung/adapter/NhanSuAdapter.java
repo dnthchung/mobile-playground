@@ -48,9 +48,9 @@ public class NhanSuAdapter extends BaseAdapter{
         TextView tvPhongBanName = myView.findViewById(R.id.tvPhongBanName);
         //3. Set data
         NhanSu ns = listNhanSu.get(position);
-        tvNhanSuId.setText(ns.getMaNhanVien());
-        tvNhanSuName.setText(ns.getTenNhanVien());
-        tvPhongBanName.setText(ns.getTenPhongBan());
+        tvNhanSuId.setText("Mã nhân sự: " + ns.getMaNhanVien());
+        tvNhanSuName.setText("Họ và Tên: "+ns.getTenNhanVien());
+        tvPhongBanName.setText("Phòng ban: "+ns.getTenPhongBan());
 
         return myView;
     }
