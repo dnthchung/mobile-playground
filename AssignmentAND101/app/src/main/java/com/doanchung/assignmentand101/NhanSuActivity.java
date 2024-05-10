@@ -73,12 +73,13 @@ public class NhanSuActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> myLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
-//                if(result.getResultCode() == RESULT_OK) {
-//                    Intent data = result.getData();
-//                    NhanSu ns = (NhanSu) data.getSerializableExtra("nhanSu");
-//                    listNS.add(ns);
-//                    loadDataShow(listNS);
-//                }
+                if (result.getResultCode() == 1) {
+                    Intent intent = result.getData();
+                    Bundle bundle = intent.getExtras();
+                    NhanSu ns = (NhanSu) bundle.getSerializable("nhanSuMoi");
+                    listNS.add(ns);
+                    loadDataShow(listNS);
+                }
             });
 
     private void loadDataShow(ArrayList<NhanSu> listNS) {
