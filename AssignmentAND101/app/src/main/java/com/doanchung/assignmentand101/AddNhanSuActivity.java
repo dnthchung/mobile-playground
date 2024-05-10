@@ -70,9 +70,7 @@ public class AddNhanSuActivity extends AppCompatActivity {
                 bundle.putSerializable("nhanSuMoi", nhanSuMoi);
                 intent.putExtras(bundle);
                 setResult(1, intent);
-                // Thêm nhân sự vào danh sách
 
-                // Đóng màn hình thêm nhân sự
                 finish();
             }
         });

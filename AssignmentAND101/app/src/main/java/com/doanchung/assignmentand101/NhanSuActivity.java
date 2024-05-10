@@ -29,6 +29,7 @@ public class NhanSuActivity extends AppCompatActivity {
         lvNhanSu = findViewById(R.id.lvNhanSu);
         Button btnAddNS = findViewById(R.id.btnAddNs);
 
+
         //Data
         listNS = new ArrayList<>();
         listNS.add(new NhanSu("NS01", "Nguyen Van A", "PB01"));

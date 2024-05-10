@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".AddNhanSuActivity"
-    >
+    tools:context=".EditNhanSuActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sửa thông tin nhân viên số 1"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/tvScreenDes"/>
 
     <EditText
         android:id="@+id/editTextEmployeeId"
@@ -20,6 +30,14 @@
         android:layout_height="wrap_content"
         android:hint="Tên nhân viên" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Phòng ban hện tại: "
+        android:layout_marginTop="20dp"
+        android:id="@+id/tvCurrentDepartment"/>
+
     <Spinner
         android:layout_marginTop="20dp"
         android:id="@+id/spinnerDepartments"
@@ -29,10 +47,10 @@
 
     <Button
         android:layout_marginTop="30dp"
-        android:id="@+id/buttonAddEmployee"
+        android:id="@+id/buttonEditEmployee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thêm nhân viên"
+        android:text="Sửa nhân viên"
         android:layout_gravity="center_horizontal"/>
 
     <Button
