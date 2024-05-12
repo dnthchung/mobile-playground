@@ -15,10 +15,12 @@ import android.widget.Toast;
 import com.doanchung.assignmentand102.MainActivity;
 import com.doanchung.assignmentand102.R;
 import com.doanchung.assignmentand102.dao.UserDAO;
+import com.doanchung.assignmentand102.utils.SendMail;
 
 public class LoginActivity extends AppCompatActivity {
 
     private UserDAO userDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +116,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(password.equals("")) {
                     Toast.makeText(LoginActivity.this, "Email không tồn tại trong hệ thống.", Toast.LENGTH_SHORT).show();
                 }else {
+                    SendMail sendMail = new SendMail();
+                    sendMail.Send(LoginActivity.this, email, "Forgot password", "Your password is: " + password + "\n");
                     Toast.makeText(LoginActivity.this, "Your password is: " + password, Toast.LENGTH_SHORT).show();
                     alertDialog.dismiss();
                 }

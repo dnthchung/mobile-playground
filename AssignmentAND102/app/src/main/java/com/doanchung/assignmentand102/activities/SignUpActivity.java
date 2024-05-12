@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.doanchung.assignmentand102.R;
 import com.doanchung.assignmentand102.dao.UserDAO;
+import com.doanchung.assignmentand102.utils.Validation;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -42,13 +43,21 @@ public class SignUpActivity extends AppCompatActivity {
 
                 userDAO = new UserDAO(SignUpActivity.this);
 
+                //check email valid
+                Validation validation = new Validation();
+                boolean checkEmail = validation.isEmailValid(email);
+                if(!checkEmail) {
+                    Toast.makeText(SignUpActivity.this, "Email không hợp lệ.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 //check password
                 if(password.equals(rePassword)) {
                     //đưa data qua dao
                     boolean checkSignUp = userDAO.signUp(username, password, fullName, email);
                     //nếu đúng thì insert vào db
                     if(checkSignUp) {
-                        Toast.makeText(SignUpActivity.this, "Create Account Successfully.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this, "Tạo tài khoản thành công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
