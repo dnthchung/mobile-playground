@@ -28,7 +28,7 @@ public class UserDAO {
     }
 
     //2. sign up
-    public boolean signUp(String userName, String password, String fullName){
+    public boolean signUp(String userName, String password, String fullName, String email){
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         //để thêm 1 dòng data hay là thay đổi thông tin gì đó  -> dùng content values
         //put : key(key đúng với tên của column trong database), value
@@ -36,6 +36,7 @@ public class UserDAO {
         contentValues.put("userName", userName);
         contentValues.put("password", password);
         contentValues.put("fullName", fullName);
+        contentValues.put("email", email);
 
         //long ? vì thằng insert của sqlite trả về 1 số, mà con số chính là cái id của data mà mình insert vào
         long check = sqLiteDatabase.insert("USER", null, contentValues);
@@ -49,6 +50,30 @@ public class UserDAO {
 
     }
 
+    //3. check email exist (forgot password)
+    public String forgotPassword(String email){
+        /**
+         * - moveToFirst() : di chuyển con trỏ tới dòng đầu tiên
+         * - cursor : con trỏ duyệt qua từng dòng dữ liệu lấy ra được từ câu lệnh sql
+         */
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        //check email có tồn tại trong db không
+        Cursor cursorCheckExist = sqLiteDatabase.rawQuery("SELECT email FROM USER WHERE email = ?", new String[]{email});
+        // nếu có tồn tại, send password qua email
+        if(cursorCheckExist.getCount() > 0){
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT password FROM USER WHERE email = ?", new String[]{email});
+            if(cursor.getCount() > 0){
+                cursor.moveToFirst();
+                return cursor.getString(0);
+            }
+            return "";
+        }
+        //Không tồn tại email trong db => send notification
+        return "";
+
+    }
+
+    //4. forgot password via send password to email
 
 
 }

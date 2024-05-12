@@ -26,6 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
         EditText edtPassword = findViewById(R.id.edtPassword);
         EditText edtRePassword = findViewById(R.id.edtRePassword);
         EditText edtFullName = findViewById(R.id.edtFullName);
+        EditText edtEmail = findViewById(R.id.edtEmail);
 
         Button btnSignUp = findViewById(R.id.btnSignUp);
 
@@ -37,13 +38,14 @@ public class SignUpActivity extends AppCompatActivity {
                 String password = edtPassword.getText().toString();
                 String rePassword = edtRePassword.getText().toString();
                 String fullName = edtFullName.getText().toString();
+                String email = edtEmail.getText().toString();
 
                 userDAO = new UserDAO(SignUpActivity.this);
 
                 //check password
                 if(password.equals(rePassword)) {
                     //đưa data qua dao
-                    boolean checkSignUp = userDAO.signUp(username, password, fullName);
+                    boolean checkSignUp = userDAO.signUp(username, password, fullName, email);
                     //nếu đúng thì insert vào db
                     if(checkSignUp) {
                         Toast.makeText(SignUpActivity.this, "Create Account Successfully.", Toast.LENGTH_SHORT).show();

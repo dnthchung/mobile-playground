@@ -1,9 +1,11 @@
 package com.doanchung.assignmentand102.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,10 +68,59 @@ public class LoginActivity extends AppCompatActivity {
         tvForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-                startActivity(intent);
+                showDialogForgotPassword();
             }
         });
+
+    }
+
+    private  void showDialogForgotPassword() {
+        /**
+         * - context: là activity hiện tại
+         * - LayoutInflater: là đối tượng dùng để tạo view từ file xml
+         * - View: là đối tượng view nhận layout thông qua LayoutInflater
+         * - QUAN TRỌNG -> Khi ánh xạ các view trong layout thì phải thông qua view
+         * - Send mail : add 3 thư viện jar vào folder libs với định dạng Project xong bôi đen các lib và chọn "save as library"
+         */
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.activity_ad_forgot_password, null);
+        builder.setView(view);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        alertDialog.setCancelable(false);
+
+        //ánh xạ thông qua view
+        Button btnCancel = view.findViewById(R.id.btnCancel);
+        Button btnSendEmail = view.findViewById(R.id.btnSendEmail);
+        EditText edtEmail = view.findViewById(R.id.edtEmail);
+
+        //cancel
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+
+        //send email
+        btnSendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = edtEmail.getText().toString();
+                String password = userDAO.forgotPassword(email);
+                if(password.equals("")) {
+                    Toast.makeText(LoginActivity.this, "Email không tồn tại trong hệ thống.", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(LoginActivity.this, "Your password is: " + password, Toast.LENGTH_SHORT).show();
+                    alertDialog.dismiss();
+                }
+            }
+        });
+
+
 
     }
 }
