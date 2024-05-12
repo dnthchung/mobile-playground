@@ -14,17 +14,18 @@ public class DbHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String qUserTable = "CREATE TABLE USER ( userName TEXT, password TEXT, fullName TEXT )";
         //db  là sqlite database mà có sẵn trong onCreate
+
+        String qUserTable = "CREATE TABLE USER ( userName TEXT, password TEXT, fullName TEXT )";
         db.execSQL(qUserTable);
 
-        String qProductTable = "CREATE TABLE PRODUCT ( id INTEGER PRIMARY KEY AUTOINCREMENT, productName TEXT, productPrice INTEGER, poductNumber INTEGER )";
+        String qProductTable = "CREATE TABLE PRODUCT ( id INTEGER PRIMARY KEY AUTOINCREMENT, productName TEXT, productPrice INTEGER, productNumber INTEGER )";
         db.execSQL(qProductTable);
 
-        String dUser = "INSERT INTO USER (userName, password, fullName) VALUES ('admin1', '123', 'admin1'),('admin2', '123', 'admin2')";
+        String dUser = "INSERT INTO USER VALUES ('admin1', '123', 'admin1'),('admin2', '123', 'admin2')";
         db.execSQL(dUser);
 
-        String dProduct = "INSERT INTO PRODUCT (productName, productPrice, productNumber) VALUES (1, 'product1', 1000, 10),(2, 'product2', 2000, 20)";
+        String dProduct = "INSERT INTO PRODUCT VALUES (1, 'product1', 1000, 10),(2, 'product2', 2000, 20)";
         db.execSQL(dProduct);
 
     }
