@@ -22,6 +22,7 @@
             android:background="#A3FFf386" />
 <!--body-->
         <LinearLayout
+            android:id="@+id/bodyLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
