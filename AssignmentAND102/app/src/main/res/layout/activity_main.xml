@@ -36,6 +36,7 @@
         android:id="@+id/navigationView"
         android:layout_gravity="start"
         app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/layout_header"
         />
 
 

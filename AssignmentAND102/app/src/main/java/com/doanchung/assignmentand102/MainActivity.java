@@ -2,9 +2,11 @@ package com.doanchung.assignmentand102;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -34,5 +36,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
 
+    }
+
+    //Hàm này sẽ thực hiện việc hiển thị menu khi click vào icon menu trên toolbar
+    public boolean onOptionsItemSelected(MenuItem item) {
+    if(item.getItemId() == android.R.id.home){
+        //Mở drawer khi click vào icon menu
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+        return super.onOptionsItemSelected(item);
     }
 }
