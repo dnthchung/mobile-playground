@@ -13,10 +13,10 @@
         android:title="Khác">
         <menu>
             <item android:id="@+id/mCaiDat"
-                android:icon="@drawable/ic_menu"
+                android:icon="@drawable/ic_settings_24"
                 android:title="Cài đặt" />
             <item android:id="@+id/mThoat"
-                android:icon="@drawable/ic_menu"
+                android:icon="@drawable/ic_exit_24"
                 android:title="Thoát" />
         </menu>
     </item>
