@@ -3,4 +3,6 @@
     <string name="no_account">Don\'t have an account? <b>Sign up</b></string>
     <string name="register">Register</string>
     <string name="forgot_password"><u>Forgot password</u></string>
+    <string name="edit"><u>Edit</u></string>
+    <string name="delete"><u>Delete</u></string>
 </resources>
