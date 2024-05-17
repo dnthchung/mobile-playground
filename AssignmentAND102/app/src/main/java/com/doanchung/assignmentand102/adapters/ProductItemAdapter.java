@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.doanchung.assignmentand102.R;
 import com.doanchung.assignmentand102.models.Product;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class ProductItemAdapter extends RecyclerView.Adapter<ProductItemAdapter.ViewHolder> {
@@ -52,12 +54,20 @@ public class ProductItemAdapter extends RecyclerView.Adapter<ProductItemAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProductItemAdapter.ViewHolder holder, int position) {
+
+
         //lấy ra sản phẩm tại vị trí position
         Product product = listProduct.get(position);
+
+        //formattedNumber is equal to 1,000,000
+        NumberFormat formatter = new DecimalFormat("#,###");
+        double myNumber = product.getProductPrice();
+        String formattedNumber = formatter.format(myNumber);
+
         //gán dữ liệu vào view
         holder.tvName.setText(product.getProductName());
-        holder.tvPrice.setText(product.getProductPrice() + "");
-        holder.tvNumber.setText(product.getProductNumber() + "");
+        holder.tvPrice.setText( formattedNumber + " VND");
+        holder.tvNumber.setText("SL: " + product.getProductNumber());
     }
 
     @Override
