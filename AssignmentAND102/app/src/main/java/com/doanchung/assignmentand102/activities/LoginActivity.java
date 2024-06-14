@@ -95,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
+        //Dùng để hủy thao tác người dùng click ra bên ngoài dialog -> làm mất dialog
         alertDialog.setCancelable(false);
 
         //ánh xạ thông qua view

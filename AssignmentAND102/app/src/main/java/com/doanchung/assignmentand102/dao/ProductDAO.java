@@ -1,5 +1,6 @@
 package com.doanchung.assignmentand102.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,6 +32,22 @@ public class ProductDAO {
             }while (cursor.moveToNext());
         }
         return productList;
+    }
+
+    //thêm sản phẩm
+    public boolean insertProduct(Product product){
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("productName", product.getProductName());
+        contentValues.put("productPrice", product.getProductPrice());
+        contentValues.put("productNumber", product.getProductNumber());
+        //trả về -1 nếu thất bại (theo document)
+        long resultCheck = sqLiteDatabase.insert("PRODUCT", null, contentValues);
+        if(resultCheck == -1){
+            return false;
+        }
+        return true;
+        //return resultCheck != -1;
     }
 
 
