@@ -59,7 +59,7 @@ public class ProductFragment extends Fragment {
         //adapter
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerViewProduct.setLayoutManager(linearLayoutManager);
-        ProductItemAdapter productItemAdapter = new ProductItemAdapter(getContext(), listProduct);
+        ProductItemAdapter productItemAdapter = new ProductItemAdapter(getContext(), listProduct, productDAO);
         recyclerViewProduct.setAdapter(productItemAdapter);
 
         //handle button add new product
@@ -76,7 +76,7 @@ public class ProductFragment extends Fragment {
 
     private void loadData() {
         ArrayList<Product> listProduct = productDAO.getAllProduct();
-        ProductItemAdapter productItemAdapter = new ProductItemAdapter(getContext(), listProduct);
+        ProductItemAdapter productItemAdapter = new ProductItemAdapter(getContext(), listProduct,productDAO);
         recyclerViewProduct.setAdapter(productItemAdapter);
     }
 
