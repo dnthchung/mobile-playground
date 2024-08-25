@@ -23,6 +23,7 @@ public class NguoiDungDAO {
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
         String sql = "SELECT * FROM NGUOIDUNG WHERE tendangnhap = ? AND matkhau = ?";
         Cursor cursor = sqLiteDatabase.rawQuery(sql, new String[]{userName, password});
+        System.out.println(cursor.getCount());
         if(cursor.getCount() > 0){
             return true;
         }

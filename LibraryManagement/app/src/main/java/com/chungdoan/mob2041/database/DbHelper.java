@@ -30,6 +30,8 @@ public class DbHelper extends SQLiteOpenHelper  {
          * - PHIEUMUON (mapm, ngaymuon, ngaytra, mand)
          * - CHITIETPHIEUMUON (mapm, masach, soluong)
          *
+         * 4. Note: trong sqlite, 1 table chỉ có 1 PK thôi, nên sẽ thêm mã cho CTPM , còn 2 thằng còn lại thì chỉ reference thôi. (line 48)
+         *
          */
         String tLoaiSach = "CREATE TABLE LOAISACH (maloai integer PRIMARY KEY AUTOINCREMENT, tenloai TEXT)";
         db.execSQL(tLoaiSach);
@@ -43,7 +45,7 @@ public class DbHelper extends SQLiteOpenHelper  {
         String tPhieuMuon = "CREATE TABLE PHIEUMUON (mapm integer PRIMARY KEY AUTOINCREMENT, ngaymuon TEXT, ngaytra TEXT, mand INTEGER REFERENCES NGUOIDUNG(mand))";
         db.execSQL(tPhieuMuon);
 
-        String tChiTietPhieuMuon = "CREATE TABLE CHITIETPHIEUMUON (mapm INTEGER PRIMARY KEY REFERENCES PHIEUMUON(mapm), masach PRIMARY KEY INTEGER REFERENCES SACH(masach), soluong INTEGER)";
+        String tChiTietPhieuMuon = "CREATE TABLE CHITIETPHIEUMUON (mactpm INTEGER PRIMARY KEY AUTOINCREMENT, mapm INTEGER REFERENCES PHIEUMUON(mapm), masach INTEGER REFERENCES SACH(masach), soluong INTEGER)";
         db.execSQL(tChiTietPhieuMuon);
 
 

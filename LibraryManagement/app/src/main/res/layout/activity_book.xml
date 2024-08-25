@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.BookActivity">
 
     <!-- Your main content goes here -->
     <androidx.core.widget.NestedScrollView
@@ -26,73 +26,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="30dp"
-                android:padding="10dp">
-
+                android:padding="10dp"
+                >
                 <TextView
                     android:id="@+id/tvWelcome"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Welcome to Book Store"
+                    android:layout_height="match_parent"
+                    android:text="Manage Book"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="20dp"
+                    />
             </LinearLayout>
 
-            <!-- Management book and book category -->
+            <!-- List book -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- Manage book category -->
-                <LinearLayout
-                    android:id="@+id/layoutManageCategory"
-                    android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                >
+                <TextView
+                    android:id="@+id/tvListBook"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:layout_margin="10dp"
+                    android:text="List Book"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCategory"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@mipmap/products" />
-
-                    <TextView
-                        android:id="@+id/textViewCategory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Loai Sach (Category)" />
-                </LinearLayout>
-
-                <!-- Manage books -->
-                <LinearLayout
-                    android:id="@+id/layoutManageBooks"
-                    android:layout_width="0dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvListBook"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewBooks"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@mipmap/products" />
-
-                    <TextView
-                        android:id="@+id/textViewBooks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sach (Book)" />
-                </LinearLayout>
+                    android:layout_margin="10dp"
+                    android:clipToPadding="false"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:scrollbars="vertical" />
             </LinearLayout>
 
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Navigation View -->
@@ -121,7 +98,7 @@
                         android:id="@+id/imageView4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                      />
+                        />
 
                     <TextView
                         android:id="@+id/textView8"
@@ -143,7 +120,7 @@
                         android:id="@+id/imageView41"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                       />
+                        />
 
                     <TextView
                         android:id="@+id/textView81"
@@ -166,7 +143,7 @@
                         android:id="@+id/imageView43"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                       />
+                        />
 
                     <TextView
                         android:id="@+id/textView83"
@@ -188,7 +165,7 @@
                         android:id="@+id/imageView44"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         />
+                        />
 
                     <TextView
                         android:id="@+id/textView84"
