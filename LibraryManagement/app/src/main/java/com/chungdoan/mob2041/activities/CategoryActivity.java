@@ -1,26 +1,44 @@
 package com.chungdoan.mob2041.activities;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chungdoan.mob2041.R;
+import com.chungdoan.mob2041.adapters.LoaiSachAdapter;
+import com.chungdoan.mob2041.daos.LoaiSachDAO;
+import com.chungdoan.mob2041.models.LoaiSach;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity {
+
+    LoaiSachDAO loaiSachDAO = new LoaiSachDAO(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_category);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        //UI mapping
+        RecyclerView rvListCategory = findViewById(R.id.rvListCategory);
+        FloatingActionButton fabAddCategory = findViewById(R.id.fabAddCategory);
+
+        //data
+        loaiSachDAO = new LoaiSachDAO(this);
+        ArrayList<LoaiSach> loaiSachList = loaiSachDAO.getAllLoaiSach2();
+
+        //adapter
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvListCategory.setLayoutManager(linearLayoutManager);
+
+        LoaiSachAdapter loaiSachAdapter = new LoaiSachAdapter(loaiSachList, this);
+        rvListCategory.setAdapter(loaiSachAdapter);
     }
 }
