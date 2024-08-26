@@ -1,104 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activities.CategoryActivity">
 
-    <!-- Your main content goes here -->
+    <!-- Main content with NestedScrollView -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_gravity="fill_vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <!-- Header -->
-            <LinearLayout
+            <TextView
+                android:id="@+id/tvWelcomeCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp"
-                >
-                <TextView
-                    android:id="@+id/tvWelcomeCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Manage Book Category"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    />
-            </LinearLayout>
-
-            <!-- List book -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:text="Manage Book Category"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:layout_marginTop="20dp"
-                >
-                <TextView
-                    android:id="@+id/tvListCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="List Category"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                android:layout_marginBottom="20dp"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvListCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:clipToPadding="false"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:scrollbars="vertical" />
-            </LinearLayout>
+            <!-- List Category -->
+            <TextView
+                android:id="@+id/tvListCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="List Category"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvListCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:clipToPadding="false"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:scrollbars="none"
+                />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/ic_baseline_add_24"
+        android:contentDescription="Add new book"/>
+
     <!-- Bottom Navigation View -->
-    <!-- Using CoordinatorLayout to use FAB button -->
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp"
+        android:layout_gravity="bottom">
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="bottom">
+        <!-- Link to navigation items -->
+        <include layout="@layout/navigation_items" />
 
-            <!-- Link to navigation items -->
-            <include layout="@layout/navigation_items" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
-        </com.google.android.material.bottomappbar.BottomAppBar>
-
-        <!-- Floating Action Button -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAddCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="80dp"
-            android:src="@drawable/ic_baseline_add_24"
-            android:contentDescription="Add new book" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

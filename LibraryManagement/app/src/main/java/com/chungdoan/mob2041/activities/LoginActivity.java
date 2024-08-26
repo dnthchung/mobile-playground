@@ -9,20 +9,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.chungdoan.mob2041.R;
 import com.chungdoan.mob2041.daos.NguoiDungDAO;
 
 public class LoginActivity extends AppCompatActivity {
 
-
-
-    NguoiDungDAO userDAO = new NguoiDungDAO(this);
+    private NguoiDungDAO userDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Initialize NguoiDungDAO inside onCreate
+        userDAO = new NguoiDungDAO(this);
 
         EditText edtUsername = findViewById(R.id.edtUsername);
         EditText edtPassword = findViewById(R.id.edtPassword);
@@ -48,6 +48,5 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

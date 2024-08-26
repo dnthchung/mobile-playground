@@ -35,7 +35,8 @@ public class CategoryActivity extends AppCompatActivity {
         ArrayList<LoaiSach> loaiSachList = loaiSachDAO.getAllLoaiSach2();
 
         //adapter
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this); => default is vertical(dọc)
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         rvListCategory.setLayoutManager(linearLayoutManager);
 
         LoaiSachAdapter loaiSachAdapter = new LoaiSachAdapter(loaiSachList, this);
