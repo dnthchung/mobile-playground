@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MOB2041_LibraryManagement"
         tools:targetApi="31">
         <activity
+            android:name=".activities.DemoSideBarActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.CategoryActivity"
             android:exported="false" />
         <activity

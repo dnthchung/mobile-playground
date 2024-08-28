@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.chungdoan.mob2041.R;
+import com.google.android.material.bottomappbar.BottomAppBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
         //mapping
         LinearLayout layoutManageCategory = findViewById(R.id.layoutManageCategory);
         LinearLayout layoutManageBooks = findViewById(R.id.layoutManageBooks);
+//        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
+
+        LinearLayout layoutSideBar = findViewById(R.id.layoutSideBar);
+
 
         //get role save in reference
         SharedPreferences sharedPreferences = getSharedPreferences("DATA_USER_MOB2041", MODE_PRIVATE);
         int role = sharedPreferences.getInt("role", 0);
-        Log.d("MainActivity", "Retrieved role: " + role);
-
         /**
          * role : 1- user \ 2 - thủ thư \ 3 - admin
          * - visibility : GONE (không hiển thị - mất hoàn toàn) - VISIBLE (hiển thị) - INVISIBLE (ẩn - vẫn giữ khoảng trống)
@@ -84,6 +87,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(
                     new Intent(MainActivity.this, BookActivity.class)
             );
+        });
+
+        //1. demo side bar / navigation drawer
+        layoutSideBar.setOnClickListener( v -> {
+                startActivity(
+                        new Intent(
+                                MainActivity.this, DemoSideBarActivity.class
+                        )
+                );
         });
 
 

@@ -19,6 +19,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <!-- Header -->
@@ -174,27 +175,163 @@
                         android:layout_height="wrap_content"
                         android:text="Lịch sử mượn sách (History)" />
                 </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Demo Option 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <!-- Demo Navigation Drawer Menu (side bar) -->
+                <LinearLayout
+                    android:id="@+id/layoutSideBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageViewSideBar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@mipmap/sidebar" />
+
+                    <TextView
+                        android:id="@+id/textViewSideBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Navigation Drawer Menu (Side Bar)" />
+                </LinearLayout>
+
+                <!-- Demo Navigation Drawer Menu (side bar) -->
+                <LinearLayout
+                    android:id="@+id/layoutSideBar2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageViewSideBar2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@mipmap/sidebar" />
+
+                    <TextView
+                        android:id="@+id/textViewSideBar2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Navigation Drawer Menu 2 (Side Bar)" />
+                </LinearLayout>
+
+                <!-- Demo Bottom Navigation View -->
+                <LinearLayout
+                    android:id="@+id/layoutBottomNavigation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageViewBottomNavigation"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@mipmap/bottom_nav_bar" />
+
+                    <TextView
+                        android:id="@+id/textViewBottomNavigation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Navigation Bottom View " />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Demo Option 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <!-- Bottom Sheet Dialog -->
+                <LinearLayout
+                    android:id="@+id/layoutBottomSheet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageViewBottomSheet"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@mipmap/bottom_sheet_behavior" />
+
+                    <TextView
+                        android:id="@+id/textViewBottomSheet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bottom Sheet Dialog" />
+                </LinearLayout>
+
+                <!-- Demo header action / toolbar -->
+                <LinearLayout
+                    android:id="@+id/layoutHeaderAction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageViewHeaderAction"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@mipmap/bottom_nav_bar" />
+
+                    <TextView
+                        android:id="@+id/textViewHeaderAction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Header Action / Toolbar" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Navigation View -->
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
 
-        <!-- Bottom Navigation View -->
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="bottom">
+<!--        <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            android:id="@+id/bottomAppBar"-->
+<!--            >-->
 
-            <!-- Link to navigation items -->
-            <include layout="@layout/navigation_items" />
+<!--            &lt;!&ndash; Link to navigation items &ndash;&gt;-->
+<!--            <include layout="@layout/navigation_items" />-->
 
-        </com.google.android.material.bottomappbar.BottomAppBar>
+<!--        </com.google.android.material.bottomappbar.BottomAppBar>-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
 </LinearLayout>
