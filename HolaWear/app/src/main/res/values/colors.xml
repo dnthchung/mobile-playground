@@ -9,4 +9,7 @@
     <color name="grey">#d2d2d2</color>
     <color name="midDarkGreen">#648286</color>
 
+    <color name="skyBlue">#87CEEB</color>
+    <color name="darkBlue">#00008B</color>
+    <color name="cobaltBlue">#0047AB</color>
 </resources>

@@ -3,18 +3,13 @@ package com.chungdoan.mob2041.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.chungdoan.mob2041.fragments.HomeShopFragment;
 import com.chungdoan.mob2041.R;
-import com.google.android.material.bottomappbar.BottomAppBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 //        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
 
         LinearLayout layoutSideBar = findViewById(R.id.layoutSideBar);
+        LinearLayout layoutSideBar2 = findViewById(R.id.layoutSideBar2);
 
 
         //get role save in reference
@@ -98,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
                 );
         });
 
+//        2 demo side bar  2
+        layoutSideBar2.setOnClickListener( v -> {
+            startActivity(
+                    new Intent(
+                            MainActivity.this, HomeShopFragment.class
+                    )
+            );
+        });
 
 
 

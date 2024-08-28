@@ -1,5 +1,6 @@
 package com.chungdoan.mob2041.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,48 +56,25 @@ public class DemoSideBarActivity extends AppCompatActivity {
                 .replace(R.id.bodyLayout, new ExploreFragment())
                 .commit();
 
-//        navigationView.setNavigationItemSelectedListener(
-//                new NavigationView.OnNavigationItemSelectedListener() {
-//                    @Override
-//                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                        Fragment fragment = null;
-//                        if(menuItem.getItemId() == R.id.nav_home){
-//                            fragment = new ExploreFragment();
-//                        } else if (menuItem.getItemId() == R.id.nav_favorite){
-//                            fragment = new WishListFragment();
-//                        }
-//
-//                        //thay đổi fragment khi chọn item =>  set fragment vào bodyLayout
-//                        getSupportFragmentManager()
-//                                .beginTransaction()
-//                                .replace(R.id.bodyLayout, fragment)
-//                                .commit();
-//
-//                        //đóng drawer khi chọn xong item
-//                        mDrawerLayout.closeDrawer(GravityCompat.START);
-//
-//                        //set title cho toolbar khi chọn item, thay đổi dựa trên title của item
-//                        getSupportActionBar().setTitle(menuItem.getTitle());
-//                        return true;
-//                    }
-//                }
-//        );
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 final Fragment fragment;
 
                 // Xác định fragment cần chuyển đến
-                if (menuItem.getItemId() == R.id.nav_home) {
-                    fragment = new ExploreFragment();
-                } else if (menuItem.getItemId() == R.id.nav_favorite) {
+                if (menuItem.getItemId() == R.id.nav_favorite) {
                     fragment = new WishListFragment();
+                } else if (menuItem.getItemId() == R.id.nav_home) {
+                    //start activity
+                    startActivity(new Intent(DemoSideBarActivity.this, HomeShopActivity.class));
+                    fragment = null;
                 } else {
                     fragment = null;
                 }
 
+
                 // Cập nhật tiêu đề của toolbar
+                //If a fragment was selected (not an activity)
                 if (fragment != null) {
                     getSupportActionBar().setTitle(menuItem.getTitle());
 
