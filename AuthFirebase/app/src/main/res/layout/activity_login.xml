@@ -6,12 +6,12 @@
     android:padding="16dp"
     android:gravity="center">
 
-    <!-- Gmail Input Field -->
+    <!-- Email Input Field -->
     <EditText
-        android:id="@+id/et_gmail"
+        android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Gmail"
+        android:hint="email"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:layout_marginBottom="16dp" />
@@ -35,6 +35,12 @@
         android:layout_marginBottom="16dp"
         android:padding="12dp" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <!-- Button to go to Sign Up Page -->
     <Button
         android:id="@+id/btn_go_to_signup"
@@ -42,5 +48,7 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:padding="12dp" />
+
+
 
 </LinearLayout>

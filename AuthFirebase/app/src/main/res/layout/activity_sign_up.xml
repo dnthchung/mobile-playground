@@ -58,11 +58,18 @@
         android:layout_marginBottom="16dp"
         android:padding="12dp" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <!-- Button to go back to Login Page -->
     <Button
         android:id="@+id/btn_go_to_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Back to Login"
         android:padding="12dp" />
 </LinearLayout>
