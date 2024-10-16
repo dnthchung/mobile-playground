@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * 1. tạo class 'ViewHolder extends RecyclerView.ViewHolder' trước
- * 2. tạo constructor bên trong class 'ViewHolder'
+ * 2. tạo constructor super bên trong class 'ViewHolder'
  * 3. Sau 2 bước trên mới bắt đầu cho Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
  * 4. Truyền vào trong thằng Adapter 1 ViewHolder (AdapterName(-LoaiSachAdapter).ViewHolder) vì thằng ViewHolder này nằm trong class Adapter
  * 5. Override 3 phương thức: onCreateViewHolder, onBindViewHolder, getItemCount

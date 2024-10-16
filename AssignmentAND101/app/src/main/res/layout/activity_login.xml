@@ -21,6 +21,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtUser"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
@@ -44,11 +46,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
+        android:id="@+id/chkRemember"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Remember me"
-        android:textSize="20sp"
-        android:id="@+id/chkRemember"/>
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

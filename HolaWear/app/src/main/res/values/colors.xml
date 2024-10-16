@@ -12,4 +12,8 @@
     <color name="skyBlue">#87CEEB</color>
     <color name="darkBlue">#00008B</color>
     <color name="cobaltBlue">#0047AB</color>
+<!--    //unselected_color selected_color-->
+    <color name="selected_color">#0047AB</color>
+    <color name="unselected_color">#00008B</color>
+
 </resources>
