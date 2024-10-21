@@ -43,7 +43,7 @@
       android:textAppearance="?android:attr/textAppearanceMedium"
       android:text="@string/tip_percentage"
       android:id="@+id/percentTextView"
-      android:layout_gravity="center_vertical|right"/>
+      android:layout_gravity="center_vertical|end"/>
 
    <SeekBar
       android:layout_width="wrap_content"
