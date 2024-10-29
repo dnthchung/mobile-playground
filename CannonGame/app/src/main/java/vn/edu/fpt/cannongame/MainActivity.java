@@ -1,19 +1,17 @@
 package vn.edu.fpt.cannongame;
 
+// CannonGame.java
+// MainActivity displays the CannonGameFragment
+import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends Activity
+{
+    // called when the app first launches
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState); // call super's onCreate method
+        setContentView(R.layout.activity_main); // inflate the layout
     }
-}
+} // end class MainActivity
