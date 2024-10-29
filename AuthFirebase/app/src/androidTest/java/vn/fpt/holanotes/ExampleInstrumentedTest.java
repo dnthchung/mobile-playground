@@ -1,4 +1,4 @@
-package com.chungdoan.authfirebase;
+package vn.fpt.holanotes;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.chungdoan.authfirebase", appContext.getPackageName());
+        assertEquals("vn.fpt.edu.holanotes", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.chungdoan.authfirebase;
+package vn.fpt.edu.holanotes;
 
 import android.content.Intent;
 import android.os.Bundle;

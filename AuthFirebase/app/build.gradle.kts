@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.chungdoan.authfirebase"
+    namespace = "vn.fpt.edu.holanotes"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.chungdoan.authfirebase"
+        applicationId = "vn.fpt.edu.holanotes"
         minSdk = 23
         targetSdk = 34
         versionCode = 1
@@ -33,6 +33,10 @@ android {
 }
 
 dependencies {
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+
     implementation(platform("com.google.firebase:firebase-bom:33.2.0"))
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AuthFirebase"
+rootProject.name = "Hola Notes"
 include(":app")
  

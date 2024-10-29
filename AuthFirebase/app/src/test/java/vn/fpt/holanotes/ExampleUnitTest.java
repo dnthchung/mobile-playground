@@ -1,4 +1,4 @@
-package com.chungdoan.authfirebase;
+package vn.fpt.holanotes;
 
 import org.junit.Test;
 
