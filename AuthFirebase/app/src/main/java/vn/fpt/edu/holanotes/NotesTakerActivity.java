@@ -3,6 +3,7 @@ package vn.fpt.edu.holanotes;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ public class NotesTakerActivity extends AppCompatActivity {
 
     // UI components
     EditText editText_notes, editText_title;
-    ImageView imageView_back, imageView_save;
+    Button imageView_back, imageView_save;
 
     // Note object to store the data
     Notes notes;

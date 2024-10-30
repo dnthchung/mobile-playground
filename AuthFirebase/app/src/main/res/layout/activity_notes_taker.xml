@@ -3,64 +3,68 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".NotesTakerActivity">
 
+    <!-- Toolbar with Save Button -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_notes"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" >
+        android:layout_height="?attr/actionBarSize">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
+
+            <Button
                 android:id="@+id/imageView_save"
-                android:background="@android:color/transparent"
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:contentDescription="@string/save"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_save"
-                android:padding="8dp"
-                />
+                app:icon="@drawable/ic_save"
+                app:iconGravity="start"
+                app:iconPadding="8dp"
+                android:text="@string/save"
+                app:backgroundTint="@color/black" />
 
         </RelativeLayout>
-
-
-
     </androidx.appcompat.widget.Toolbar>
 
-    <EditText
-        android:id="@+id/editText_title"
-        android:autofillHints="Title"
+    <!-- Other UI components like title and notes -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:hint="Title: "
-        android:inputType="text"
-        android:textColorHint="@color/black"
-        android:padding="8dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:singleLine="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        app:boxBackgroundMode="outline">
 
-    <EditText
-        android:inputType="text"
-        android:autofillHints="Notes"
-        android:id="@+id/editText_notes"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:autofillHints="Title" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:hint="Add Notes: "
-        android:textColorHint="@color/black"
-        android:padding="8dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="normal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        app:boxBackgroundMode="outline">
 
-
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:gravity="top|start"
+            android:minLines="6"
+            android:scrollbars="vertical"
+            android:autofillHints="Notes" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

@@ -235,7 +235,7 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesListAdapter.Note
 
         // Set a fixed background color for the card (Change this color as needed)
         holder.notes_container.setCardBackgroundColor(
-                holder.itemView.getResources().getColor(R.color.color1, null)  // Fixed color
+                holder.itemView.getResources().getColor(R.color.white, null)  // Fixed color
         );
 
         // Set click listeners for card actions
