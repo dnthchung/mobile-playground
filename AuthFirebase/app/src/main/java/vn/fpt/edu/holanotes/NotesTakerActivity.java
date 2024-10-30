@@ -1,3 +1,4 @@
+//path : app/src/main/java/vn/fpt/edu/holanotes/NotesTakerActivity.java
 package vn.fpt.edu.holanotes;
 
 import android.annotation.SuppressLint;

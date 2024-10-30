@@ -1,3 +1,4 @@
+//path : app/src/main/java/vn/fpt/edu/holanotes/LoginActivity.java
 package vn.fpt.edu.holanotes;
 
 import android.content.Intent;

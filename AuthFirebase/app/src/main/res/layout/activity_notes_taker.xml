@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".NotesTakerActivity">
-
+<!-- path : app/src/main/res/layout/activity_notes_taker.xml -->
     <!-- Toolbar with Save Button -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_notes"

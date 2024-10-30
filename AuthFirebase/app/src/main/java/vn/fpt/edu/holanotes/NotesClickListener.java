@@ -1,3 +1,4 @@
+//path : app/src/main/java/vn/fpt/edu/holanotes/NotesClickListener.java
 package vn.fpt.edu.holanotes;
 
 import androidx.cardview.widget.CardView;
