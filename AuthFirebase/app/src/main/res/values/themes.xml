@@ -1,9 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.AuthFirebase" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.HolaNotes" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.AuthFirebase" parent="Base.Theme.AuthFirebase" />
+    <style name="Theme.HolaNotes" parent="Base.Theme.HolaNotes" />
+
+    <!-- Base application theme. -->
+    <style name="Base.Theme.HolaNotes.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.HolaNotes.NoActionBar" parent="Base.Theme.HolaNotes.NoActionBar" />
 </resources>
+

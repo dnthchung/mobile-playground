@@ -23,5 +23,5 @@ public interface MainDAO {
     void update(int id, String title, String notes);
 
 
-    void delete(Notes notes);
+//    void delete(Notes notes);
 }
