@@ -5,14 +5,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int GRID_SIZE = 10;
     private Button[][] buttons = new Button[GRID_SIZE][GRID_SIZE];
     private boolean isPlayerXTurn = true; // True for player X, false for player O
+    private Stack<int[]> moveHistory = new Stack<>();
+    private TextView resultTextView;
+    private Button undoButton;
+    private Button resetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         GridLayout gridLayout = findViewById(R.id.gridLayout);
+        resultTextView = findViewById(R.id.textView_result);
+        undoButton = findViewById(R.id.button_undo);
+        resetButton = findViewById(R.id.button_reset);
+
         createGameGrid(gridLayout);
+
+        undoButton.setOnClickListener(v -> undoLastMove());
+        resetButton.setOnClickListener(v -> resetGame());
     }
 
     private void createGameGrid(GridLayout gridLayout) {
@@ -29,14 +43,13 @@ public class MainActivity extends AppCompatActivity {
                 Button button = new Button(this);
                 button.setLayoutParams(new GridLayout.LayoutParams());
                 button.setTextSize(24);
-                button.setBackgroundResource(R.drawable.cell_border); // Apply the border drawable
+                button.setBackgroundResource(R.drawable.cell_border);
                 button.setOnClickListener(new CellClickListener(row, col));
                 gridLayout.addView(button);
                 buttons[row][col] = button;
             }
         }
     }
-
 
     private class CellClickListener implements View.OnClickListener {
         private int row;
@@ -53,11 +66,13 @@ public class MainActivity extends AppCompatActivity {
             if (button.getText().toString().isEmpty()) {
                 button.setText(isPlayerXTurn ? "X" : "O");
                 button.setTextColor(isPlayerXTurn ? Color.RED : Color.BLUE);
+                moveHistory.push(new int[]{row, col}); // Record the move
 
                 if (checkWinCondition(row, col)) {
                     String winner = isPlayerXTurn ? "Player X" : "Player O";
+                    resultTextView.setText("Match Result: " + winner + " wins!");
                     Toast.makeText(MainActivity.this, winner + " wins!", Toast.LENGTH_LONG).show();
-                    resetGame();
+                    disableAllButtons();
                 } else {
                     isPlayerXTurn = !isPlayerXTurn;
                 }
@@ -99,12 +114,33 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    private void undoLastMove() {
+        if (!moveHistory.isEmpty()) {
+            int[] lastMove = moveHistory.pop();
+            buttons[lastMove[0]][lastMove[1]].setText("");
+            isPlayerXTurn = !isPlayerXTurn; // Switch turn back
+            resultTextView.setText("Match Result: -"); // Clear result display
+        } else {
+            Toast.makeText(this, "No moves to undo!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void resetGame() {
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int col = 0; col < GRID_SIZE; col++) {
                 buttons[row][col].setText("");
             }
         }
+        moveHistory.clear();
         isPlayerXTurn = true;
+        resultTextView.setText("Match Result: -");
+    }
+
+    private void disableAllButtons() {
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int col = 0; col < GRID_SIZE; col++) {
+                buttons[row][col].setEnabled(false);
+            }
+        }
     }
 }

@@ -2,6 +2,8 @@ package vn.edu.fpt.doodlz;
 
 // DoodleView.java
 // Main View for the Doodlz app.
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +14,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.media.MediaScannerConnection;
 import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
 
 import android.util.AttributeSet;
@@ -267,35 +271,59 @@ public class DoodleView extends View
     }
 
     // save the current image to the Gallery
-    public void saveImage()
-    {
-        // use "Doodlz" followed by current time as the image name
+//    public void saveImage()
+//    {
+//        // use "Doodlz" followed by current time as the image name
+//        String name = "Doodlz" + System.currentTimeMillis() + ".jpg";
+//
+//        // insert the image in the device's gallery
+//        String location = MediaStore.Images.Media.insertImage(
+//                getContext().getContentResolver(), bitmap, name,
+//                "Doodlz Drawing");
+//
+//        if (location != null) // image was saved
+//        {
+//            // display a message indicating that the image was saved
+//            Toast message = Toast.makeText(getContext(),
+//                    R.string.message_saved, Toast.LENGTH_SHORT);
+//            message.setGravity(Gravity.CENTER, message.getXOffset() / 2,
+//                    message.getYOffset() / 2);
+//            message.show();
+//        }
+//        else
+//        {
+//            // display a message indicating that the image was saved
+//            Toast message = Toast.makeText(getContext(),
+//                    R.string.message_error_saving, Toast.LENGTH_SHORT);
+//            message.setGravity(Gravity.CENTER, message.getXOffset() / 2,
+//                    message.getYOffset() / 2);
+//            message.show();
+//        }
+//    } // end method saveImage
+
+    public void saveImage() {
         String name = "Doodlz" + System.currentTimeMillis() + ".jpg";
-
-        // insert the image in the device's gallery
-        String location = MediaStore.Images.Media.insertImage(
-                getContext().getContentResolver(), bitmap, name,
-                "Doodlz Drawing");
-
-        if (location != null) // image was saved
-        {
-            // display a message indicating that the image was saved
-            Toast message = Toast.makeText(getContext(),
-                    R.string.message_saved, Toast.LENGTH_SHORT);
-            message.setGravity(Gravity.CENTER, message.getXOffset() / 2,
-                    message.getYOffset() / 2);
-            message.show();
+        File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Doodlz");
+        if (!path.exists()) {
+            path.mkdirs();
         }
-        else
-        {
-            // display a message indicating that the image was saved
-            Toast message = Toast.makeText(getContext(),
-                    R.string.message_error_saving, Toast.LENGTH_SHORT);
-            message.setGravity(Gravity.CENTER, message.getXOffset() / 2,
-                    message.getYOffset() / 2);
-            message.show();
+        File imageFile = new File(path, name);
+
+        try (FileOutputStream outputStream = new FileOutputStream(imageFile)) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+            outputStream.flush();
+
+            // Cập nhật hình ảnh vào MediaStore để hiển thị trong thư viện
+            MediaScannerConnection.scanFile(getContext(), new String[]{imageFile.getAbsolutePath()}, null, null);
+
+            Toast.makeText(getContext(), R.string.message_saved, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getContext(), R.string.message_error_saving, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
-    } // end method saveImage
+    }
+
+
 
     // print the current image
     public void printImage()
