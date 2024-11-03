@@ -36,7 +36,7 @@
         android:hint="@string/enter_answer_hint"
         android:inputType="text" />
 
-    <!-- Buttons for submit and show hint -->
+    <!-- Buttons for submit, show hint, skip, and reset -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,6 +63,8 @@
             android:layout_height="wrap_content"
             android:text="@string/skip"
             android:layout_margin="8dp" />
+
+
     </LinearLayout>
 
     <!-- Display score -->
@@ -73,4 +75,14 @@
         android:text="@string/score"
         android:textSize="18sp"
         android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        android:layout_marginTop="80dp"
+
+        android:background="#FF0000"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

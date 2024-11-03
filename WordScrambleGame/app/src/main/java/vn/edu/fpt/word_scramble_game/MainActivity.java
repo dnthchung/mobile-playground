@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textViewScrambledWord, textViewScore, textViewDefinition;
     private EditText editTextAnswer;
-    private Button buttonSubmit, buttonHint, buttonSkip;
+    private Button buttonSubmit, buttonHint, buttonSkip, buttonReset;
     private String currentWord;
     private String currentHint;
     private int score = 0;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSubmit = findViewById(R.id.button_submit);
         buttonHint = findViewById(R.id.button_hint);
         buttonSkip = findViewById(R.id.button_skip);
+        buttonReset = findViewById(R.id.button_reset);
 
         // Initialize SharedPreferences for high score
         sharedPreferences = getSharedPreferences("WordScramblePrefs", MODE_PRIVATE);
@@ -65,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 skipQuestion();
+            }
+        });
+
+        buttonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetGame();
             }
         });
     }
@@ -134,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         if (userAnswer.equalsIgnoreCase(currentWord)) {
             Toast.makeText(this, getString(R.string.correct_answer), Toast.LENGTH_SHORT).show();
             score++;
+           
             saveHighScore();
             updateScore();
             startNewGame();
@@ -162,6 +171,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void skipQuestion() {
         Toast.makeText(this, getString(R.string.question_skipped), Toast.LENGTH_SHORT).show();
+        startNewGame();
+        editTextAnswer.setText("");
+    }
+
+    private void resetGame() {
+        score = 0;
+        saveHighScore();
+        updateScore();
+        Toast.makeText(this, getString(R.string.game_reset), Toast.LENGTH_SHORT).show();
         startNewGame();
         editTextAnswer.setText("");
     }

@@ -3,12 +3,14 @@
     <string name="submit">Submit</string>
     <string name="show_hint">Show Hint</string>
     <string name="skip">Skip</string>
+    <string name="reset">Reset</string>
     <string name="score">Score: %1$d</string>
     <string name="correct_answer">Chính xác!</string>
     <string name="try_again">Hãy thử lại!</string>
     <string name="hint">Gợi ý: %1$s</string>
     <string name="hint_already_used">Bạn đã xem gợi ý rồi!</string>
     <string name="question_skipped">Bạn đã bỏ qua câu hỏi này.</string>
+    <string name="game_reset">Trò chơi đã được làm lại!</string>
     <string name="enter_answer_hint">Enter your answer</string>
     <string name="scrambled_word">Scrambled Word</string>
 </resources>
