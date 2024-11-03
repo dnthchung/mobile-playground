@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity">
+
+    <!-- Radio Group for selecting units -->
+    <RadioGroup
+        android:id="@+id/radioGroup_units"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <RadioButton
+            android:id="@+id/radio_metric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Metric Units (kg, cm)" />
+
+        <RadioButton
+            android:id="@+id/radio_english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English Units (lbs, inches)" />
+    </RadioGroup>
+
+    <!-- Input for weight -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/editText_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter weight"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/textView_weight_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kg"
+            android:paddingStart="8dp" />
+    </LinearLayout>
+
+    <!-- Input for height -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/editText_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter height"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/textView_height_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"
+            android:paddingStart="8dp" />
+    </LinearLayout>
+
+    <!-- Button to calculate BMI -->
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate BMI"
+        android:layout_marginTop="16dp" />
+
+    <!-- TextView to display BMI result -->
+    <TextView
+        android:id="@+id/textView_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your BMI will be displayed here"
+        android:textSize="18sp"
+        android:paddingTop="16dp"
+        android:textAlignment="center" />
+
+    <!-- TextView to display BMI formula -->
+    <TextView
+        android:id="@+id/textView_formula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BMI Formula:"
+        android:textSize="16sp"
+        android:paddingTop="8dp"
+        android:textAlignment="center" />
+
+    <!-- TextView to display calculation details -->
+    <TextView
+        android:id="@+id/textView_calculation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculation Details:"
+        android:textSize="14sp"
+        android:paddingTop="8dp"
+        android:textAlignment="center" />
+</LinearLayout>

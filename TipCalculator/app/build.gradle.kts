@@ -41,5 +41,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation("com.github.someauthor:simpletextwatcher:1.0.0")
+//    implementation("com.github.someauthor:simpletextwatcher:1.0.0")
 }
