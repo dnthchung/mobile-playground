@@ -31,7 +31,13 @@ public class MainActivity extends AppCompatActivity {
         bricks = new ArrayList<>();
         random = new Random();
 
-        setupGame();
+        // Wait until gameArea is laid out before setting up the game
+        gameArea.post(new Runnable() {
+            @Override
+            public void run() {
+                setupGame();
+            }
+        });
 
         fireButton.setOnClickListener(v -> {
             checkCollision();
@@ -39,11 +45,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupGame() {
+        // Ensure gameArea has a width greater than zero
+        if (gameArea.getWidth() <= 0 || gameArea.getHeight() <= 0) return;
+
         // Create bricks dynamically with different colors and add them to the game area
         for (int i = 0; i < 10; i++) {
             View brick = new View(this);
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(150, 50);
-            params.setMargins(random.nextInt(gameArea.getWidth()), random.nextInt(600), 0, 0);
+            params.setMargins(random.nextInt(gameArea.getWidth() - 150), random.nextInt(gameArea.getHeight() - 50), 0, 0);
             brick.setLayoutParams(params);
 
             int color = getRandomBrickColor();
@@ -68,20 +77,28 @@ public class MainActivity extends AppCompatActivity {
     private void checkCollision() {
         if (bricks.isEmpty()) return;
 
-        View brick = bricks.get(0);
-        int color = (int) brick.getTag();
-        int shotsRequired = getShotsRequired(color);
+        // Iterate through the bricks to simulate a collision check
+        for (int i = 0; i < bricks.size(); i++) {
+            View brick = bricks.get(i);
+            int color = (int) brick.getTag();
+            int shotsRequired = getShotsRequired(color);
 
-        shotsRequired--;
-        if (shotsRequired <= 0) {
-            gameArea.removeView(brick);
-            bricks.remove(0);
-            score += 10;
-            scoreTextView.setText(getString(R.string.score_label) + " " + score);
-        } else {
-            brick.setTag(shotsRequired);
+            shotsRequired--;
+
+            if (shotsRequired <= 0) {
+                // Brick is destroyed, remove it and update the score
+                gameArea.removeView(brick);
+                bricks.remove(i);
+                i--; // Adjust index after removal
+                score += 10;
+                scoreTextView.setText(getString(R.string.score_label) + " " + score);
+            } else {
+                // Update the tag to represent the remaining shots needed
+                brick.setTag(shotsRequired);
+            }
         }
     }
+
 
     private int getShotsRequired(int color) {
         if (color == R.color.brickRed) return 3;
