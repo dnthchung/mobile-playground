@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="cellBackground">#E0E0E0</color>
+    <color name="xColor">#FF0000</color>
+    <color name="oColor">#0000FF</color>
+
+    <color name="gridBorderColor">#000000</color>
+</resources>
