@@ -1,0 +1,9 @@
+<resources>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="buttonColor">#6200EE</color>
+    <color name="brickRed">#E53935</color>
+    <color name="brickYellow">#FFEB3B</color>
+    <color name="brickGreen">#4CAF50</color>
+    <color name="brickBlue">#1E88E5</color>
+</resources>

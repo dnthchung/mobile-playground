@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
+
+    <!-- Game Header -->
+    <TextView
+        android:id="@+id/textView_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/score_label"
+        android:textSize="18sp"
+        android:textColor="@color/primaryTextColor"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Game Area -->
+    <FrameLayout
+        android:id="@+id/game_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textView_score"
+        android:layout_marginTop="16dp">
+        <!-- Bricks and target will be dynamically added -->
+    </FrameLayout>
+
+    <!-- Fire Button -->
+    <Button
+        android:id="@+id/button_fire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fire_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:backgroundTint="@color/buttonColor"
+        android:textColor="@android:color/white" />
+</RelativeLayout>

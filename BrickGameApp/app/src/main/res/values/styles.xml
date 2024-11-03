@@ -1,0 +1,7 @@
+<resources>
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/buttonColor</item>
+        <item name="colorPrimaryVariant">@color/brickRed</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+</resources>

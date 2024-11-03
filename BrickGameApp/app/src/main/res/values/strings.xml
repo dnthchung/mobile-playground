@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Brick Game App</string>
+    <string name="score_label">Score: 0</string>
+    <string name="fire_button">Fire</string>
+</resources>
