@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         if (userAnswer.equalsIgnoreCase(currentWord)) {
             Toast.makeText(this, getString(R.string.correct_answer), Toast.LENGTH_SHORT).show();
             score++;
-           
+
             saveHighScore();
             updateScore();
             startNewGame();
