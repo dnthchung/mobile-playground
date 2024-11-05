@@ -51,6 +51,35 @@ public class SignUpActivity extends AppCompatActivity {
             startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
         });
 
+//        btnSignUp.setOnClickListener(v -> {
+//            progressBar.setVisibility(ProgressBar.VISIBLE);
+//            String email = etEmail.getText().toString();
+//            String password = etPassword.getText().toString();
+//            String confirmPassword = etConfirmPassword.getText().toString();
+//
+//            if (password.length() < 6) {
+//                progressBar.setVisibility(View.GONE);
+//                Toast.makeText(SignUpActivity.this, "Password should be at least 6 characters.", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//
+//            mAuth.createUserWithEmailAndPassword(email, password)
+//                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                            progressBar.setVisibility(View.GONE);
+//                            if (task.isSuccessful()) {
+//                                // Sign in success
+//                                Toast.makeText(SignUpActivity.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
+//                            } else {
+//                                // If sign in fails, display a message to the user.
+//                                String errorMessage = task.getException() != null ? task.getException().getMessage() : "Authentication failed.";
+//                                Toast.makeText(SignUpActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//        });
+
         btnSignUp.setOnClickListener(v -> {
             progressBar.setVisibility(ProgressBar.VISIBLE);
             String email = etEmail.getText().toString();
@@ -69,15 +98,19 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
-                                // Sign in success
+                                // Đăng ký thành công, chuyển hướng đến LoginActivity
                                 Toast.makeText(SignUpActivity.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish(); // Đóng SignUpActivity để không quay lại được bằng nút Back
                             } else {
-                                // If sign in fails, display a message to the user.
+                                // Nếu đăng ký thất bại, hiển thị thông báo lỗi
                                 String errorMessage = task.getException() != null ? task.getException().getMessage() : "Authentication failed.";
                                 Toast.makeText(SignUpActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
         });
+
     }
 }

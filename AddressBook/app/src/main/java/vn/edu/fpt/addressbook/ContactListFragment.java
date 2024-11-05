@@ -29,8 +29,14 @@ public class ContactListFragment extends ListFragment
       public void onAddContact();
    }
    
-   private ContactListFragmentListener listener; 
-   
+   private ContactListFragmentListener listener;
+
+   public void showAddEditDialog() {
+      AddEditFragment addEditFragment = new AddEditFragment();
+      addEditFragment.show(getFragmentManager(), "addEditDialog");
+   }
+
+
    private ListView contactListView; // the ListActivity's ListView
    private CursorAdapter contactAdapter; // adapter for ListView
    
@@ -139,17 +145,16 @@ public class ContactListFragment extends ListFragment
 
    // handle choice from options menu
    @Override
-   public boolean onOptionsItemSelected(MenuItem item) 
-   {
+   public boolean onOptionsItemSelected(MenuItem item) {
       int itemId = item.getItemId();
-      if(itemId == R.id.action_add){
-         listener.onAddContact();
+      if (itemId == R.id.action_add) {
+         showAddEditDialog(); // Mở dialog nhập thông tin
          return true;
       }
-      
-      return super.onOptionsItemSelected(item); // call super's method
+      return super.onOptionsItemSelected(item);
    }
-   
+
+
    // update data set
    public void updateContactList()
    {

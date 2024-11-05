@@ -2,4 +2,7 @@
     <string name="app_name">Hola Notes</string>
     <string name="add">add</string>
     <string name="save">save</string>
+    <string name="logout">logout\n</string>
+    <string name="sort_by_newest">Sort by Newest</string>
+    <string name="sort_by_oldest">Sort by Oldest</string>
 </resources>
