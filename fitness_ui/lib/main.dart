@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Poppins',
         ),
-        home:
-            const HomePage()); // => Tái sử dụng instance, tối ưu hiệu năng nếu widget immutable.
+        home: HomePage());
+    // => Tái sử dụng instance, tối ưu hiệu năng nếu widget immutable.
   }
 }
