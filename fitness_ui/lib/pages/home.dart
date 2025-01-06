@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: SvgPicture.asset('assets/icons/Search.svg'),
           ),
-          suffixIcon: Container(
+          suffixIcon: SizedBox(
             width: 100,
             child: IntrinsicHeight(
               child: Row(
@@ -234,7 +234,7 @@ class HomePage extends StatelessWidget {
               return Container(
                 width: 210,
                 decoration: BoxDecoration(
-                  color: diets[index].boxColor.withOpacity(0.3),
+                  color: diets[index].boxColor.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
@@ -252,11 +252,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          diets[index].level +
-                              ' | ' +
-                              diets[index].duration +
-                              ' | ' +
-                              diets[index].calorie,
+                          '${diets[index].level} | ${diets[index].duration} | ${diets[index].calorie}',
                           style: const TextStyle(
                             color: Color(0xff7B6F72),
                             fontSize: 13,
@@ -340,7 +336,8 @@ class HomePage extends StatelessWidget {
                 boxShadow: popularDiets[index].boxIsSelected
                     ? [
                         BoxShadow(
-                          color: const Color(0xff1D1617).withOpacity(0.07),
+                          color:
+                              const Color(0xff1D1617).withValues(alpha: 0.07),
                           offset: const Offset(0, 10),
                           blurRadius: 40,
                           spreadRadius: 0,
