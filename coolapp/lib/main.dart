@@ -1,42 +1,53 @@
 import 'dart:math';
-
+import 'package:coolapp/second_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Cool App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Cool App'),
-          backgroundColor: Colors.green,
-        ),
-        body: ListView.builder(
-          itemCount: 20, // Define the number of items you want in the list
-          itemBuilder: (context, index) {
-            return Container(
-              margin: const EdgeInsets.all(10), // Add spacing between items
-              color: randomColor(),
-              height: 150, // Set a fixed height for better appearance
-              child: Center(
-                child: Text(
-                  'Item $index',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+      home: Builder(
+        // Ensures the correct context is used
+        builder: (context) => Scaffold(
+          appBar: AppBar(
+            title: const Text('Cool App'),
+            backgroundColor: Colors.green,
+          ),
+          body: Center(
+            // Ensure button is in the center
+            child: ElevatedButton(
+              onPressed: () {
+                // Navigate to the second page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => SecondScreen()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: const EdgeInsets.all(16.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-            );
-          },
+              child: const Icon(
+                Icons.navigate_next,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
       ),
     );
