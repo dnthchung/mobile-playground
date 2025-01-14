@@ -61,3 +61,12 @@ B. assignment 2
    - [Trang chủ của `flutter_native_splash` trên pub.dev](https://pub.dev/packages/flutter_native_splash)
 
 </details>
+
+<details>
+<summary style="margin-bottom: 10px;"><strong>Flutter Navigation </strong></summary>
+   - dùng navigator push và pop vào stack
+   - chuyển màn mà kèm data thì đều dùng MaterialPageRoute
+      + 1 là thông qua constructor
+      + 2 là settings: RouteSettings( arguments: ,  ),
+      + 3 là có trò dùng route như trên web, '/' ,'/screen2',...
+</details>
