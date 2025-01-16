@@ -4,6 +4,7 @@ import 'package:fitness_ui/models/diet_model.dart';
 import 'package:fitness_ui/models/popular_model.dart';
 import 'package:fitness_ui/models/category_model.dart';
 
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
